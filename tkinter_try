@@ -1,0 +1,254 @@
+# -*- coding:utf-8 -*-
+import tkinter as tk
+from PIL import ImageTk,Image
+from tkinter import messagebox
+from mysql_sunrise import add_0,finder_0,drop_0,alter_0,look_0
+# 调用Tk()创建主窗口
+def add():
+    def then_then(a,b):
+        add_0(a,b)
+    def then():
+        tk.Label(root_window, text="增加内容：",
+                 ).place(x=90, y=130, width=220, height=30)
+        e1 = tk.Entry(root_window)
+        e1.place(x=80, y=160, width=260, height=30)
+        if strings.get()=='school':
+            e1.insert(0,"('schname','schno','schity','schlevel')")
+        elif strings.get()=='student':
+            e1.insert(0,"('sname','sno','sex')")
+        elif strings.get()=='test':
+            e1.insert(0,"('sno','schno','grand')")
+        tk.Button(root_window, text="ok_again", width=10,
+                  command=lambda: then_then(strings.get(),e1.get())).place(x=90, y=240, width=80, height=30)
+        root_window.mainloop()
+    root_window.quit
+    root_window.title('数据库操作系统_sunrise酱')  # 给主窗口起一个名字，也就是窗口的名字
+    root_window.attributes('-topmost', True)
+    root_window.resizable(False, False)
+    image2 = Image.open(r'C:\Users\sunrise\Desktop\in.gif')
+    background_image = ImageTk.PhotoImage(image2)
+    w = background_image.width()
+    h = background_image.height()
+    root_window.geometry('%dx%d+400+100' % (w, h))
+    background_label = tk.Label(root_window, image=background_image)
+    background_label.place(x=0, y=0, relwidth=1, relheight=1)
+    strings = tk.Spinbox(root_window, values=('school', 'student', 'test'))
+    strings.pack()
+    tk.Button(root_window, text="ok", width=10, command=then).place(x=90, y=240, width=80, height=30)
+    tk.Button(root_window, text="cancel", width=10, command=frash).place(x=230, y=240, width=80, height=30)
+    root_window.mainloop()
+def drop():
+    def then_then(a, b):
+        drop_0(a, b)
+
+    def then():
+        tk.Label(root_window, text="删除表项目",
+                 ).place(x=90, y=130, width=220, height=30)
+        e1 = tk.Entry(root_window)
+        e1.place(x=120, y=160, width=160, height=30)
+        e1.insert(0, "置入你的条件")
+        tk.Button(root_window, text="ok_again", width=10,
+                  command=lambda: then_then(strings.get(), e1.get())).place(x=90, y=240, width=80, height=30)
+        root_window.mainloop()
+
+    root_window.quit
+    root_window.title('数据库操作系统_sunrise酱')  # 给主窗口起一个名字，也就是窗口的名字
+    root_window.attributes('-topmost', True)
+    root_window.resizable(False, False)
+    image2 = Image.open(r'C:\Users\sunrise\Desktop\in.gif')
+    background_image = ImageTk.PhotoImage(image2)
+    w = background_image.width()
+    h = background_image.height()
+    root_window.geometry('%dx%d+400+100' % (w, h))
+    background_label = tk.Label(root_window, image=background_image)
+    background_label.place(x=0, y=0, relwidth=1, relheight=1)
+    strings = tk.Spinbox(root_window, values=('school', 'student', 'test'))
+    strings.pack()
+    tk.Button(root_window, text="ok", width=10, command=then).place(x=90, y=240, width=80, height=30)
+    tk.Button(root_window, text="cancel", width=10, command=frash).place(x=230, y=240, width=80, height=30)
+    root_window.mainloop()
+def alter():
+    def then_then(a):
+        alter_0(a)
+    def then():
+        tk.Label(root_window, text="修改表项目，下面填语句",
+                 ).place(x=90, y=130, width=220, height=30)
+        e1 = tk.Entry(root_window)
+        e1.place(x=120, y=160, width=160, height=30)
+        e1.insert(0, "语句")
+        tk.Button(root_window, text="ok_again", width=10,
+                  command=lambda: then_then( e1.get())).place(x=90, y=240, width=80, height=30)
+        root_window.mainloop()
+
+    root_window.quit
+    root_window.title('数据库操作系统_sunrise酱')  # 给主窗口起一个名字，也就是窗口的名字
+    root_window.attributes('-topmost', True)
+    root_window.resizable(False, False)
+    image2 = Image.open(r'C:\Users\sunrise\Desktop\in.gif')
+    background_image = ImageTk.PhotoImage(image2)
+    w = background_image.width()
+    h = background_image.height()
+    root_window.geometry('%dx%d+400+100' % (w, h))
+    background_label = tk.Label(root_window, image=background_image)
+    background_label.place(x=0, y=0, relwidth=1, relheight=1)
+    tk.Label(root_window, text="确定进入修改吗",
+             ).place(x=90, y=130, width=220, height=30)
+    tk.Button(root_window, text="ok", width=10, command=then).place(x=90, y=240, width=80, height=30)
+    tk.Button(root_window, text="cancel", width=10, command=frash).place(x=230, y=240, width=80, height=30)
+    root_window.mainloop()
+def look():
+    def then():
+
+        listbox1 = tk.Listbox(root_window)
+        listbox1.pack()
+        # i表示索引值，item 表示值，根据索引值的位置依次插入
+        for i, item in enumerate(look_0(strings.get())):
+            listbox1.insert(i, item)
+        root_window.mainloop()
+    root_window.quit
+    root_window.title('数据库操作系统_sunrise酱')  # 给主窗口起一个名字，也就是窗口的名字
+    root_window.attributes('-topmost', True)
+    root_window.resizable(False, False)
+    image2 = Image.open(r'C:\Users\sunrise\Desktop\in.gif')
+    background_image = ImageTk.PhotoImage(image2)
+    w = background_image.width()
+    h = background_image.height()
+    root_window.geometry('%dx%d+400+100' % (w, h))
+    background_label = tk.Label(root_window, image=background_image)
+    background_label.place(x=0, y=0, relwidth=1, relheight=1)
+    strings = tk.Spinbox(root_window, values=('school', 'student', 'test'))
+    strings.pack()
+    tk.Button(root_window, text="ok", width=10, command=then).place(x=90, y=240, width=80, height=30)
+    tk.Button(root_window, text="cancel", width=10, command=frash).place(x=230, y=240, width=80, height=30)
+    root_window.mainloop()
+def finder():
+    def then_then(a):
+        finder_0(a)
+    def then():
+        tk.Label(root_window, text="查找表项目，下面填语句",
+                 ).place(x=90, y=130, width=220, height=30)
+        e1 = tk.Entry(root_window)
+        e1.place(x=120, y=160, width=160, height=30)
+        e1.insert(0, "语句")
+        tk.Button(root_window, text="ok_again", width=10,
+                  command=lambda: then_then( e1.get())).place(x=90, y=240, width=80, height=30)
+        root_window.mainloop()
+
+    root_window.quit
+    root_window.title('数据库操作系统_sunrise酱')  # 给主窗口起一个名字，也就是窗口的名字
+    root_window.attributes('-topmost', True)
+    root_window.resizable(False, False)
+    image2 = Image.open(r'C:\Users\sunrise\Desktop\in.gif')
+    background_image = ImageTk.PhotoImage(image2)
+    w = background_image.width()
+    h = background_image.height()
+    root_window.geometry('%dx%d+400+100' % (w, h))
+    background_label = tk.Label(root_window, image=background_image)
+    background_label.place(x=0, y=0, relwidth=1, relheight=1)
+    tk.Label(root_window, text="确定进入查询吗",
+             ).place(x=90, y=130, width=220, height=30)
+    tk.Button(root_window, text="ok", width=10, command=then).place(x=90, y=240, width=80, height=30)
+    tk.Button(root_window, text="cancel", width=10, command=frash).place(x=230, y=240, width=80, height=30)
+    root_window.mainloop()
+
+    def add():
+        def then_then(a, b):
+            add_0(a, b)
+
+        def then():
+            tk.Label(root_window, text="增加内容：",
+                     ).place(x=90, y=130, width=220, height=30)
+            e1 = tk.Entry(root_window)
+            e1.place(x=80, y=160, width=260, height=30)
+            if strings.get() == 'school':
+                e1.insert(0, "('schname','schno','schity','schlevel')")
+            elif strings.get() == 'student':
+                e1.insert(0, "('sname','sno','sex')")
+            elif strings.get() == 'test':
+                e1.insert(0, "('sno','schno','grand')")
+            tk.Button(root_window, text="ok_again", width=10,
+                      command=lambda: then_then(strings.get(), e1.get())).place(x=90, y=240, width=80, height=30)
+            root_window.mainloop()
+
+        root_window.quit
+        root_window.title('数据库操作系统_sunrise酱')  # 给主窗口起一个名字，也就是窗口的名字
+        root_window.attributes('-topmost', True)
+        root_window.resizable(False, False)
+        image2 = Image.open(r'C:\Users\sunrise\Desktop\in.gif')
+        background_image = ImageTk.PhotoImage(image2)
+        w = background_image.width()
+        h = background_image.height()
+        root_window.geometry('%dx%d+400+100' % (w, h))
+        background_label = tk.Label(root_window, image=background_image)
+        background_label.place(x=0, y=0, relwidth=1, relheight=1)
+        strings = tk.Spinbox(root_window, values=('school', 'student', 'test'))
+        strings.pack()
+        tk.Button(root_window, text="ok", width=10, command=then).place(x=90, y=240, width=80, height=30)
+        tk.Button(root_window, text="cancel", width=10, command=frash).place(x=230, y=240, width=80, height=30)
+        root_window.mainloop()
+def frash():
+    root_window.title('数据库操作系统_sunrise酱')# 给主窗口起一个名字，也就是窗口的名字
+    root_window.attributes('-topmost',True)
+    root_window.resizable(False,False)
+    image2 =Image.open(r'C:\Users\sunrise\Desktop\in.gif')
+    background_image = ImageTk.PhotoImage(image2)
+    w = background_image.width()
+    h = background_image.height()
+    root_window.geometry('%dx%d+400+100' % (w,h))
+    background_label = tk.Label(root_window, image=background_image)
+    background_label.place(x=0, y=0, relwidth=1, relheight=1)
+    label = tk.Label(root_window, text="请选择你的服务", font=('SimSun', 18, 'bold'), bg="white",
+                     # 设置标签内容区大小
+                     width=25, height=2,
+                     # 设置填充区距离、边框宽度和其样式（凹陷式）
+                     padx=0, pady=0, borderwidth=0)
+    label.pack()
+    tk.Button(root_window, text="增加", width=10, command=add).place(x=150,y=140, width=80, height=30)
+    tk.Button(root_window, text="删除", width=10, command=drop).place(x=150,y=180, width=80, height=30)
+    tk.Button(root_window, text="修改", width=10, command=alter).place(x=150,y=220, width=80, height=30)
+    tk.Button(root_window, text="查找", width=10, command=finder).place(x=150,y=260, width=80, height=30)
+
+    tk.Button(root_window, text="观察表项", width=10, command=look).place(x=150, y=300, width=80, height=30)
+    root_window.mainloop()
+root_window =tk.Tk()
+root_window.title('数据库操作系统_sunrise酱')# 给主窗口起一个名字，也就是窗口的名字
+root_window.attributes('-topmost',True)
+root_window.resizable(False,False)
+image2 =Image.open(r'C:\Users\sunrise\Desktop\in.gif')
+background_image = ImageTk.PhotoImage(image2)
+w = background_image.width()
+h = background_image.height()
+root_window.geometry('%dx%d+400+100' % (w,h))
+background_label = tk.Label(root_window, image=background_image)
+background_label.place(x=0, y=0, relwidth=1, relheight=1)
+
+label = tk.Label(root_window, text="欢迎使用数据库管理系统",font=('SimSun',18, 'bold'),bg="white",
+                 # 设置标签内容区大小
+                 width=22,height=0,
+                 # 设置填充区距离、边框宽度和其样式（凹陷式）
+                 padx=5, pady=5, borderwidth=10)
+label.pack()
+tk.Label(root_window, text="账号：",
+         ).place(x=90,y=60, width=60, height=30)
+tk.Label(root_window, text="密码：",
+         ).place(x=90,y=100, width=60, height=30)
+# 创建输入框控件
+e1 = tk.Entry(root_window)
+# 以 * 的形式显示密码
+e2 = tk.Entry(root_window,show='*')
+e1.place(x=140,y=60, width=160, height=30)
+e2.place(x=140,y=100, width=160, height=30)
+#回执函数
+def login():
+    if e2.get()=="123456":
+        root_window.quit
+        frash()
+    else:
+        messagebox.showinfo('错误的',f'您不对劲,{e1.get()}')
+
+tk.Button(root_window, text="登录", width=10, command=login).place(x=90,y=140, width=80, height=30)
+tk.Button(root_window, text="退出", width=10, command=root_window.quit).place(x=220,y=140, width=80, height=30)
+
+root_window.mainloop()#开启主循环，让窗口处于显示状态
+
+
